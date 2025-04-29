@@ -153,23 +153,23 @@ End Infix 2 Prefix
 */
 
 int main(){
-    char exp[100];
-    char exp1[100];
-    char exp2[100];
-    char exp3[100];
-    char exp4[100];
-    char test_case[] = "(1+2)*3"; // answer 9
+    
+    // 테스트 케이스 실행
+    char test_case0[] = "(1+2)*3"; // answer 9
     char test_case1[] = "(1+2)*3+2"; // answer 11
     char test_case2[] = "(1+6/3+1)*3+7"; // answer 19
     char test_case3[] = "3+5*(9+2)*3/(3*(4+7))"; // answer 8
     char test_case4[] = "(1+2/2+5*(4+1))*3"; // answer 81
-        
-    printf("\ntest_case\n");    
-    ConvInfixToPostfix(test_case, exp, strlen(test_case));
-    printf("equation: %s=9\n", test_case);
-    printf("postfix: %s\n", exp);
-    printf("result: %d\n", EvalPostfix(exp, strlen(exp)));
     
+    char exp0[100], exp1[100], exp2[100], exp3[100], exp4[100];
+
+
+    printf("\ntest_case0\n");
+    ConvInfixToPostfix(test_case0, exp0, strlen(test_case0));
+    printf("equation: %s=9\n", test_case0);
+    printf("postfix: %s\n", exp0);
+    printf("result: %d\n", EvalPostfix(exp0, strlen(exp0)));
+      
     printf("\ntest_case1\n");
     ConvInfixToPostfix(test_case1, exp1, strlen(test_case1));
     printf("equation: %s=11\n", test_case1);
@@ -193,5 +193,17 @@ int main(){
     printf("equation: %s=81\n", test_case4);
     printf("postfix: %s\n", exp4);
     printf("result: %d\n", EvalPostfix(exp4, strlen(exp4)));
+
+
+    char exp[100];
+    char input[100];
+    printf("\n\n");
+    printf("Input equation: ");
+    scanf("%s", input);
+    
+    ConvInfixToPostfix(input, exp, strlen(input));
+    printf("Equation: %s\n", input);
+    printf("Postfix: %s\n", exp);
+    printf("Result: %d\n", EvalPostfix(exp, strlen(exp)));
     return 0;
 }
